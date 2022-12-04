@@ -22,7 +22,6 @@ public class UsersController {
     @GetMapping
     public String allUsers(Model model) {
         List<User> users = userDAO.allUsers();
-        users.forEach(e -> System.out.println(e.getEmail()));
         model.addAttribute("users", users);
         return "users/index";
     }
@@ -31,6 +30,7 @@ public class UsersController {
     public String show(@PathVariable int id, Model model) {
         User user = userDAO.getUser(id);
         model.addAttribute("driver", user);
+        System.out.println(user);
         return "users/show";
     }
 
