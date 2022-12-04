@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+  <h1>Информация о водителе:</h1>
+
+  <table>
+    <tr>
+      <th>Email</th>
+      <th>FullName</th>
+      <th>Age</th>
+    </tr>
+    <tr>
+      <td th:text="${driver.getEmail()}"></td>
+      <td th:text="${driver.getFullName()}"></td>
+      <td th:text="${driver.getAge()}"></td>
+    </tr>
+  </table>
+
+  <h1>Машины данного водителя</h1>
+
+  <table>
+    <tr>
+      <th>Model</th>
+      <th>Year</th>
+    </tr>
+
+    <tr th:each="car : ${driver.getCars()}">
+      <td th:text="${car.getModel()}"></td>
+      <td th:text="${car.getYear()}"></td>
+    </tr>
+  </table>
+
+
+
+</body>
+</html>
